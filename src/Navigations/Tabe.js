@@ -122,10 +122,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: '#FFFFFF',
-    elevation: 5,
     borderTopColor: '#fff',
     borderTopWidth: 1,
-    zIndex:1
+    zIndex:1,
+
+    shadowColor: 'black',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.6,
+    elevation: 8,
   },
   bottomTabe: {
     width: '20%',

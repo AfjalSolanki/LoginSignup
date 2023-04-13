@@ -1,39 +1,49 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import React, {Component} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
+import Colors from '../commonStyleSheet/Color';
+import Fonts from '../commonStyleSheet/Fonts ';
+import {responsiveFontSize} from '../commonStyleSheet/ResponsiveSize';
 
 // create a component
-const ButtonWithLoader = ({
-    isLoading,
-    text,
-    onPress,
-    btnStyle
-}) => {
-    return (
-        <TouchableOpacity onPress={onPress} style={[styles.btnStyle,{...btnStyle}]}>
-            {!!isLoading ? <ActivityIndicator size="large" color="white" />
-                : <Text style={styles.textStyle}>{text}</Text>
-            }
-        </TouchableOpacity>
-    );
+const ButtonWithLoader = ({isLoading, text, onPress, btnStyle, textStyle}) => {
+  return (
+    <TouchableOpacity onPress={onPress} style={[styles.btnStyle, btnStyle]}>
+      {!!isLoading ? (
+        <ActivityIndicator size="large" color="white" />
+      ) : (
+        <Text style={[styles.textStyle, textStyle]}>{text}</Text>
+      )}
+    </TouchableOpacity>
+  );
 };
 
 // define your styles
 const styles = StyleSheet.create({
-    btnStyle: {
-        height: 48,
-        backgroundColor: 'blue',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 10,
-        paddingHorizontal: 16
-    },
-    textStyle: {
-        fontSize: 16,
-        // textTransform: 'uppercase',
-        fontWeight: 'bold',
-        color: 'white'
-    }
+  btnStyle: {
+    height: 48,
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    paddingHorizontal: 16,
+  },
+  textStyle: {
+    // fontSize: 16,
+    // // textTransform: 'uppercase',
+    // fontWeight: 'bold',
+    // color: 'white'
+    fontSize: responsiveFontSize(17),
+    fontFamily: Fonts.POPPINS_BOLD,
+    color: Colors.colorBackground,
+    // marginStart: responsiveVerticalSize(1),
+  },
 });
 
 //make this component available to the app

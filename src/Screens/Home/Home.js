@@ -23,32 +23,50 @@ import DashboardHeader from '../../Components/DashboardHeader';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {addProducts} from '../../redux/slices/ProductSlices';
+import Loader from '../../Components/Loader';
 // create a component
 const Home = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     getProducts();
   }, []);
   const getProducts = () => {
+    setLoading(true);
     fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
       .then(json => {
+        setLoading(false);
         setProduct(json);
         json.map(item => {
           item.qty = 1;
         });
+
         dispatch(addProducts(json));
+        setLoading(false);
       });
   };
+
+  const getData = () => {
+    fetch('https://dummyjson.com/products')
+      .then(res => res.json())
+      .then(json => console.log('---------------------', json));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <View style={styles.container}>
+      <Loader loading={loading} />
       {/* <BackHeader headertitle={'aaaaaaaaaaaaaa'} /> */}
       <DashboardHeader
         rightIcon={require('../../assets/images/shopping-bag.png')}
         title={'BITCOIN WALLET'}
-        onClickRightIcon={()=>navigation.navigate('Cart')}
+        onClickRightIcon={() => navigation.navigate('Cart')}
         isCart={true}
       />
       <FlatList

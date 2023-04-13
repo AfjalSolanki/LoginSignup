@@ -35,8 +35,6 @@ const Profile = () => {
   };
   return (
     <View style={styles.container}>
-      {/* <Text>{userData.name}</Text> */}
-      {/* <Text style={{ marginBottom: 16 }}>{userData.email}</Text> */}
       <ButtonWithLoader
         isLoading={isLoading}
         text="Logout"

@@ -11,7 +11,7 @@ import ButtonWithLoader from '../../Components/ButtonWithLoader';
 import TextInputWithLable from '../../Components/TextInputWithLabel';
 
 import validator from '../../utils/validations';
-import {showError} from '../../utils/helperFunction';
+import {showError,showSuccess} from '../../utils/helperFunction';
 // import actions from '../../redux/actions';
 import {
   signInWithEmailAndPassword,
@@ -36,7 +36,7 @@ const Login = ({navigation}) => {
   const onLogin = async () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        alert('User Logi Successfully');
+        showSuccess('User Logi Successfully');
         navigation.replace('Tabe');
         // // Signed in
         // const user = userCredential.user;
@@ -45,7 +45,7 @@ const Login = ({navigation}) => {
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        showError(errorMessage);
         // ..
       });
   };

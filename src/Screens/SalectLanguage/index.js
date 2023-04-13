@@ -13,6 +13,9 @@ import '../../language/i18n';
 
 import {useTranslation} from 'react-i18next';
 import ButtonWithLoader from '../../Components/ButtonWithLoader';
+import Container from '../../Components/Container';
+import { responsiveFontSize } from '../../commonStyleSheet/ResponsiveSize';
+import Fonts from '../../commonStyleSheet/Fonts ';
 // create a component
 const SalectLanguage = ({navigation}) => {
   const {t, i18n} = useTranslation();
@@ -51,26 +54,24 @@ const SalectLanguage = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.SalectLanguage}>{t('SalectLanguage')}</Text>
-      <View style={{flex: 1}}>
-        <FlatList
-          contentContainerStyle={styles.flatList}
-          data={data}
-          renderItem={renderItem}
+    <Container>
+      <View style={styles.container}>
+        <Text style={styles.SalectLanguage}>{t('SalectLanguage')}</Text>
+        <View style={{flex: 1}}>
+          <FlatList
+            contentContainerStyle={styles.flatList}
+            data={data}
+            renderItem={renderItem}
+          />
+        </View>
+        <ButtonWithLoader
+          text="SalectLanguage"
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
         />
       </View>
-      {/* <ButtonComp
-          onPress={() => navigation.navigate('LoginScreen')}
-          btnText={'SalectLanguage'}
-        /> */}
-      <ButtonWithLoader
-        text="SalectLanguage"
-        onPress={() => {
-            navigation.navigate('Login');
-        }}
-      />
-    </View>
+    </Container>
   );
 };
 
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
 
   selected: {
     marginHorizontal: 10,
-    marginVertical: 20,
+    marginVertical: 10,
     paddingVertical: 10,
     backgroundColor: 'orange',
     justifyContent: 'center',
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
 
   unselected: {
     marginHorizontal: 10,
-    marginVertical: 20,
+    marginVertical: 10,
     paddingVertical: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -109,14 +110,14 @@ const styles = StyleSheet.create({
     borderColor: 'orange',
   },
   langTxt: {
-    // fontFamily:'',
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: responsiveFontSize(17),
+    fontFamily: Fonts.POPPINS_BOLD,
   },
   SalectLanguage: {
-    fontSize: 25,
-    fontWeight: 'bold',
     color: '#FFF',
+    fontSize: responsiveFontSize(17),
+    fontFamily: Fonts.POPPINS_BOLD,
+    marginVertical:20,marginStart:10
     // alignSelf:'center'
   },
 });

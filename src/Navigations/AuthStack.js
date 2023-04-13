@@ -3,12 +3,15 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../Screens/Login/Login';
 import Signup from '../Screens/Signup/Signup';
 import SalectLanguage from '../Screens/SalectLanguage';
+// import SignIn from '../Screens/SignIn';
 
 const Stack = createNativeStackNavigator();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
+      {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
+
       <Stack.Screen name="SalectLanguage" component={SalectLanguage} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Signup" component={Signup} />

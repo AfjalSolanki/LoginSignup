@@ -137,11 +137,12 @@ const ProductDetail = ({navigation}) => {
         }}
         onPressLogin={() => {
           setMadalVisible(false);
-          navigation.navigate('Login')
+          navigation.replace('AuthStack', {screen: 'Login'});
+
         }}
         onPressSignup={() => {
           setMadalVisible(false);
-          navigation.navigate('Signup')
+          navigation.replace('AuthStack', {screen: 'Signup'});
         }}
       />
     </View>
