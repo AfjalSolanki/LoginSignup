@@ -36,9 +36,7 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useSelector} from 'react-redux';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 
 import Fonts from '../../commonStyleSheet/Fonts ';
 import {
@@ -49,6 +47,7 @@ import {
 } from '../../commonStyleSheet/ResponsiveSize';
 import DashboardHeader from '../../Components/DashboardHeader';
 import {addItemToCart, reduceItemToCart,removeItemfromCart } from '../../redux/slices/CartSlice';
+import Colors from '../../commonStyleSheet/Color';
 
 // create a component
 const Cart = () => {

@@ -12,16 +12,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-// import Toast from 'react-native-toast-message';
 import * as yup from 'yup';
 import {Formik} from 'formik';
-// import Spinner from 'react-native-loading-spinner-overlay/lib';
 
 import Container from '../../Components/Container';
-// import GlobalInput from '../component/GlobalInput';
-// import GlobalButton from '../component/GlobalButton';
 import {COLORS, Font, ImagePath, SIZE} from '../../Components/theme';
-// import GlobalHeader from '../component/GlobalHeader';
 import ButtonWithLoader from '../../Components/ButtonWithLoader';
 import CommonTextInput from '../../Components/CommonTextInput';
 import CommanHeader from '../../Components/CommanHeader';
@@ -49,9 +44,6 @@ const SignIn = ({navigation}) => {
       .min(8, ({min}) => `Password must be at least ${min} characters`)
       .required('Password is required'),
     conformPassword: yup
-      // .string()
-      // .oneOf([yup.ref('password')], 'Password dont match')
-      // .required('Conform password is required'),
       .string()
       .oneOf([yup.ref('password')], 'Passwords do not match')
       .required('Confirm password is required'),
