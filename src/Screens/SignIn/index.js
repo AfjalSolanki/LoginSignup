@@ -50,7 +50,7 @@ const SignIn = ({navigation}) => {
   });
 
   const onHandle = () => {
-    alert('--------');
+    alert('--------');onPressSignup
   };
 
   return (
